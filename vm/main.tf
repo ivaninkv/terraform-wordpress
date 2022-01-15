@@ -14,12 +14,19 @@ provider "yandex" {
   zone      = var.yc_zone
 }
 
+module "network" {
+  source = "../modules/network"
+}
+
 module "mysql-cluster" {
-  source       = "../modules/mysql-cluster"
-  environment  = var.mysql_environment
-  db_version   = var.mysql_db_version
-  cluster_name = var.mysql_cluster_name
-  db_name      = var.mysql_db_name
-  db_user      = var.mysql_db_user
-  db_pass      = var.mysql_db_pass
+  source           = "../modules/mysql-cluster"
+  environment      = var.mysql_environment
+  db_version       = var.mysql_db_version
+  cluster_name     = var.mysql_cluster_name
+  db_name          = var.mysql_db_name
+  db_user          = var.mysql_db_user
+  db_pass          = var.mysql_db_pass
+  vpc_network_id   = module.network.private_network_id
+  subnet_zone_a_id = module.network.subnet_zone_a_id
+  subnet_zone_b_id = module.network.subnet_zone_b_id
 }

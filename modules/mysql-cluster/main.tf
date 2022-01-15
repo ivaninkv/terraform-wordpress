@@ -10,7 +10,7 @@ terraform {
 resource "yandex_mdb_mysql_cluster" "mysql_db_cluster" {
   environment = var.environment
   name        = var.cluster_name
-  network_id  = yandex_vpc_network.mysql_db_network.id
+  network_id  = var.vpc_network_id
   version     = var.db_version
   database {
     name = var.db_name
@@ -18,12 +18,12 @@ resource "yandex_mdb_mysql_cluster" "mysql_db_cluster" {
   host {
     zone      = "ru-central1-a"
     name      = "db1"
-    subnet_id = yandex_vpc_subnet.subnet_zone_a.id
+    subnet_id = var.subnet_zone_a_id
   }
   host {
     zone      = "ru-central1-b"
     name      = "db2"
-    subnet_id = yandex_vpc_subnet.subnet_zone_b.id
+    subnet_id = var.subnet_zone_b_id
   }
   resources {
     disk_size          = 10
@@ -34,18 +34,4 @@ resource "yandex_mdb_mysql_cluster" "mysql_db_cluster" {
     name     = var.db_user
     password = var.db_pass
   }
-}
-
-resource "yandex_vpc_network" "mysql_db_network" {}
-
-resource "yandex_vpc_subnet" "subnet_zone_a" {
-  zone           = "ru-central1-a"
-  network_id     = yandex_vpc_network.mysql_db_network.id
-  v4_cidr_blocks = ["10.1.0.0/24"]
-}
-
-resource "yandex_vpc_subnet" "subnet_zone_b" {
-  zone           = "ru-central1-b"
-  network_id     = yandex_vpc_network.mysql_db_network.id
-  v4_cidr_blocks = ["10.2.0.0/24"]
 }

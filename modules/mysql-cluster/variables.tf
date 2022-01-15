@@ -27,3 +27,15 @@ variable "db_pass" {
   description = "DB Password"
   default = "password"
 }
+
+variable "vpc_network_id" {
+  description = "VPC network id"
+}
+
+variable "subnet_zone_a_id" {
+  description = "ID of subnet from zone a"
+}
+
+variable "subnet_zone_b_id" {
+  description = "ID of subnet from zone b"
+}
