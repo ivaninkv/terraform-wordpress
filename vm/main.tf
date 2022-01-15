@@ -30,3 +30,15 @@ module "mysql-cluster" {
   subnet_zone_a_id = module.network.subnet_zone_a_id
   subnet_zone_b_id = module.network.subnet_zone_b_id
 }
+
+module "elasticsearch" {
+  source           = "../modules/elasticsearch"
+  cluster_name     = var.es_cluster_name
+  environment      = var.es_environment
+  disk_size        = var.es_disk_size
+  disk_type_id     = var.es_disk_type_id
+  machine_type     = var.es_machine_type
+  admin_password   = var.es_admin_password
+  vpc_network_id   = module.network.private_network_id
+  subnet_zone_a_id = module.network.subnet_zone_a_id
+}

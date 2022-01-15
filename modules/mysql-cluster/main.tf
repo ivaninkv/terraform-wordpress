@@ -26,9 +26,9 @@ resource "yandex_mdb_mysql_cluster" "mysql_db_cluster" {
     subnet_id = var.subnet_zone_b_id
   }
   resources {
-    disk_size          = 10
-    disk_type_id       = "network-ssd"
-    resource_preset_id = "s2.micro"
+    disk_size          = var.disk_size
+    disk_type_id       = var.disk_type_id
+    resource_preset_id = var.machine_type
   }
   user {
     name     = var.db_user

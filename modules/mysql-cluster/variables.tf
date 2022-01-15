@@ -39,3 +39,18 @@ variable "subnet_zone_a_id" {
 variable "subnet_zone_b_id" {
   description = "ID of subnet from zone b"
 }
+
+variable "disk_type_id" {
+  description = "Disk type"
+  default = "network-ssd"
+}
+
+variable "disk_size" {
+  description = "Size of disk"
+  default = 10
+}
+
+variable "machine_type" {
+  description = "Type of machine"
+  default = "s2.micro"
+}
