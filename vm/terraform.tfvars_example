@@ -1,0 +1,13 @@
+# provider settings
+yc_token           = ""
+yc_cloud_id        = ""
+yc_folder_id       = ""
+yc_zone            = "ru-central1-a"
+
+# mysql cluster settings
+mysql_environment  = "PRODUCTION"
+mysql_db_version   = "5.7"
+mysql_cluster_name = "mysql_cluster"
+mysql_db_name      = "mysql_db"
+mysql_db_user      = "user"
+mysql_db_pass      = "password"
