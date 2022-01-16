@@ -11,3 +11,21 @@ mysql_cluster_name = "mysql_cluster"
 mysql_db_name      = "mysql_db"
 mysql_db_user      = "user"
 mysql_db_pass      = "password"
+mysql_disk_type_id = "network-ssd"
+mysql_disk_size    = 10
+mysql_machine_type = "s2.micro"
+
+# elasticsearch settings
+es_cluster_name   = "es_cluster"
+es_environment    = "PRODUCTION"
+es_admin_password = "password"
+es_disk_type_id   = "network-ssd"
+es_disk_size      = 20
+es_machine_type   = "s2.micro"
+
+# webserver
+ws_cores               = 2
+ws_memory              = 2
+ws_image_id            = "fd8f30hur3255mjfi3hq"
+ws_disk_size           = 15
+ws_ssh_public_key_path = "~/.ssh/id_rsa.pub"

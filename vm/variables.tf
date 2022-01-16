@@ -91,3 +91,34 @@ variable "es_machine_type" {
   description = "Type of machine"
   default = "s2.micro"
 }
+
+# webserver
+variable "ws_cores" {
+  description = "Number of vCPU"
+  default = 2
+}
+
+variable "ws_memory" {
+  description = "RAM in Gb"
+  default = 2
+}
+
+variable "ws_image_id" {
+  description = "Image for install"
+  default = "fd8f30hur3255mjfi3hq"
+}
+
+variable "ws_disk_size" {
+  description = "Size of disk in Gb"
+  default = 15
+}
+
+variable "ws_ssh_public_key_path" {
+  description = "SSH public key path"
+  default = "~/.ssh/id_rsa.pub"
+}
+
+variable "ws_ssh_private_key_path" {
+  description = "SSH private key path"
+  default = "~/.ssh/id_rsa"
+}

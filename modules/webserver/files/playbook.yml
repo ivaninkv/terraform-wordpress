@@ -1,0 +1,28 @@
+---
+- hosts: localhost
+  roles:
+    - oefenweb.wordpress
+  become: yes
+  vars:
+    wordpress_installs:
+      - name: wordpress
+        dbname: {{dbname}}
+        dbuser: {{dbuser}}
+        dbpass: {{dbpass}}
+        dbhost: {{dbhost}}
+        path: /var/www/site
+        url: http://{{url}}
+        title: wordpress
+        admin_name: admin
+        admin_email: root@localhost.localdomain
+        admin_password: 'password'
+        themes:
+          - name: twentytwelve
+            activate: true
+          - name: twentythirteen
+        plugins:
+          - name: contact-form-7
+            activate: false
+        users: {}
+        options: []
+        queries: []

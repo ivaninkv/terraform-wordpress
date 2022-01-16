@@ -33,5 +33,9 @@ resource "yandex_mdb_mysql_cluster" "mysql_db_cluster" {
   user {
     name     = var.db_user
     password = var.db_pass
+    permission {
+      database_name = var.db_name
+      roles         = ["ALL"]
+    }
   }
 }

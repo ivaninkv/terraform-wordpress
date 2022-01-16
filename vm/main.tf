@@ -42,3 +42,18 @@ module "elasticsearch" {
   vpc_network_id   = module.network.private_network_id
   subnet_zone_a_id = module.network.subnet_zone_a_id
 }
+
+module "webserver" {
+  source               = "../modules/webserver"
+  cores                = var.ws_cores
+  memory               = var.ws_memory
+  image_id             = var.ws_image_id
+  disk_size            = var.ws_disk_size
+  ssh_public_key_path  = var.ws_ssh_public_key_path
+  ssh_private_key_path = var.ws_ssh_private_key_path
+  db_name              = var.mysql_db_name
+  db_user              = var.mysql_db_user
+  db_pass              = var.mysql_db_pass
+  subnet_id            = module.network.subnet_zone_a_id
+  db_host              = module.mysql-cluster.master_host_name
+}
